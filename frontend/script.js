@@ -1,6 +1,6 @@
 // This URL will need to be updated to your Render backend URL once deployed
 // For local testing, we'll use localhost:3000
-const BACKEND_URL = 'http://localhost:3000/api/submit'; 
+const BACKEND_URL = 'https://basic-form-project.onrender.com'; 
 // Example: const BACKEND_URL = 'https://your-backend-name.onrender.com/api/submit';
 
 document.getElementById('contactForm').addEventListener('submit', async (e) => {
