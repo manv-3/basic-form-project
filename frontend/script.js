@@ -28,7 +28,12 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
             responseDiv.style.color = 'green';
             document.getElementById('contactForm').reset();
         } else {
-            responseDiv.textContent = 'Error: ' + (data.error || 'Something went wrong');
+            let errorMsg = 'Error: ' + (data.error || 'Something went wrong');
+            if (data.incident_id) {
+                errorMsg += `\nIncident Ray ID: ${data.incident_id}`;
+            }
+            responseDiv.style.whiteSpace = 'pre-line';
+            responseDiv.textContent = errorMsg;
             responseDiv.style.color = 'red';
         }
     } catch (error) {
