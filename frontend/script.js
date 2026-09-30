@@ -1,7 +1,5 @@
-// This URL will need to be updated to your Render backend URL once deployed
-// For local testing, we'll use localhost:3000
-const BACKEND_URL = 'https://basic-form-project.onrender.com/api/submit'; 
-// Example: const BACKEND_URL = 'https://your-backend-name.onrender.com/api/submit';
+// Routed through Vercel WAF Rewrite to SecureScript on Render
+const BACKEND_URL = '/api/submit';
 
 document.getElementById('contactForm').addEventListener('submit', async (e) => {
     e.preventDefault();
