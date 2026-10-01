@@ -21,7 +21,14 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
             body: JSON.stringify({ name, email, message })
         });
 
-        const data = await response.json();
+        let data;
+        const text = await response.text();
+        try {
+            data = JSON.parse(text);
+        } catch (e) {
+            const cleanText = text.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+            data = { error: `Server returned HTTP ${response.status}: ${cleanText.slice(0, 140)}` };
+        }
 
         if (response.ok) {
             responseDiv.textContent = 'Success: ' + data.message;
